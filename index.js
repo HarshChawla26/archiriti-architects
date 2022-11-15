@@ -10,7 +10,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 
-app.use(cors({origin:'http://localhost:3000/#/'})); 
+app.use(cors({origin:'https://archiritiarchitects.herokuapp.com/'})); 
 
 app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
@@ -27,5 +27,5 @@ app.get('/',(req,res,next)=>{
   })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}/`)
+  console.log(`Example app listening on port https://archiritiarchitects.herokuapp.com/`)
 })
