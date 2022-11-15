@@ -12,11 +12,11 @@ const port = process.env.PORT || 3000;
 
 app.use(cors({origin:'http://localhost:3000/#/'})); 
 
-app.use(express.static(path.join(__dirname+'/dist/arch-website')));
+app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
 
 app.get('/',(req,res,next)=>{
-  res.render(path.join(__dirname+'/dist/arch-website'+'index.html'));
+  res.render(path.join(__dirname+'/dist/build'+'index.html'));
 })
   
   
