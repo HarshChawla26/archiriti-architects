@@ -10,7 +10,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 
-app.use(cors({origin:'https://archiritiarchitects.herokuapp.com/'})); 
+app.use(cors()); 
 
 app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
