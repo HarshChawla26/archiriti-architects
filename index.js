@@ -5,13 +5,20 @@ const mongoose = require('./data.js');
 const qroutes = require('./routes/quotes.js');
 const froutes = require('./routes/feedback.js');
 const path = require('path');
-
+var history = require('connect-history-api-fallback');
 const app = express()
 const port = process.env.PORT || 3000;
 
 
 app.use(cors()); 
-
+app.use(history({
+  rewrites:[
+      {from: /^\/api\/.*$/, to: function(context){
+          return context.parsedUrl.pathname;
+      }},
+      {from: /\/.*/, to: '/'}
+  ]
+}))
 app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
 
