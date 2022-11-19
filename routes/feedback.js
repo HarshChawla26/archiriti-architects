@@ -11,9 +11,9 @@ const feedbackDB  = require('../models/feedback.js');
 router.get('/',(req,res)=>{
     feedbackDB.find({})
     .then((e)=>{
-        res.send(e)
+        res.send("This is a feedback route")
     }).catch((err)=>{
-        console.log(`Error in Get data${err}`)
+        res.status(400).send("Error occured");
     })
 });
 
@@ -27,10 +27,10 @@ router.post('/',(req,res)=>{
 
     fdbk.save((err,doc)=>{
         if(err){
-            console.log(`Error in Post data
-            ${err}`);
+            
+            res.status(400).send(`error occured : ${err}`);
         }else{
-            res.send(doc);
+            res.status(200).send("Data is posted");
         }
     });
 });
