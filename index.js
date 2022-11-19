@@ -11,16 +11,16 @@ const port = process.env.PORT || 3000;
 
 
 app.use(cors()); 
-app.use(history({
-  rewrites:[
-      {from: /^\/api\/.*$/, to: function(context){
-          return context.parsedUrl.pathname;
-      }},
-      {from: /\/.*/, to: '/'}
-  ]
-}))
 app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
+app.use(history({
+  rewrites:[
+      {from: '/^\/api\/.*$/', to: function(context){
+          return context.parsedUrl.pathname;
+      }},
+      {from: '/\/.*/', to: '/'}
+  ]
+}))
 
 app.get('/',(req,res,next)=>{
   res.render(path.join(__dirname+'/dist/build'+'index.html'));
