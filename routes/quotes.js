@@ -54,7 +54,7 @@ router.post('/',(req,res)=>{
         if(err){
             console.log(`Error in Post data${err}`);
         }else{
-            res.send("The quote is posted");
+            res.send({message:"The quote is posted"});
         }
     });
 });
