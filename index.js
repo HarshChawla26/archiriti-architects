@@ -8,7 +8,7 @@ const path = require('path');
 const app = express()
 
 const port =process.env.PORT||3000;
-
+// console.log(mongoose.connect()
 app.use(cors()); 
 app.use(express.static(path.join(__dirname+'/dist/build')));
 app.use(bodyParser.json());
