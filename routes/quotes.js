@@ -23,6 +23,13 @@ router.get('/:id',(req,res)=>{
     const {id} = req.params;
     quotedb.find({qRef:parseInt(id)},(err,doc)=>{
         if(err){
+            res.send({
+                "_id":"",
+                "qRef":0,
+                "content":"",
+                "author":"",
+                "__v":0
+            })
             console.log(`Error in Get data${err}`);
         }else{
             res.send(doc[0]);
