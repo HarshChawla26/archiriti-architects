@@ -25,7 +25,7 @@ router.get('/:id',(req,res)=>{
         if(err){
             console.log(`Error in Get data${err}`);
         }else{
-            res.send(doc);
+            res.send(doc[0]);
         }
     })
 });
