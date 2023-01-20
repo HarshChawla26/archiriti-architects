@@ -28,13 +28,6 @@ router.get('/:id',(req,res)=>{
             res.send(doc);
         }
     })
-    // let data = quotedb.find();
-    // res.send(data)
-    // if(data){
-    // }   
-    // }else{
-    //     return res.status(400).send('No record found with id ' + req.params.id)
-    // }
 });
 
 //post API
