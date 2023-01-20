@@ -1,8 +1,6 @@
 const express  = require('express');
 const router  = express.Router();
 
-const ObjectId = require('mongoose').Types.ObjectId;
-
 const quotedb  = require('../models/quotes');
 
 //Get , Post API
@@ -21,25 +19,22 @@ router.get('/',(req,res)=>{
 
 //get single quote API
 router.get('/:id',(req,res)=>{
-    if(ObjectId.isValid(req.params.id)){
-        quotedb.findById(req.params.id,(err,doc)=>{
-            if(err){
-                console.log(`Error in Get data by Id ${err}`);
-            }else{
-                res.send(doc);
-            }
-        })
-    }else{
-        return res.status(400).send('No record found with id ' + req.params.id)
-    }
 
-    quotedb.find((err,doc)=>{
+    const {id} = req.params;
+    quotedb.find({qRef:parseInt(id)},(err,doc)=>{
         if(err){
             console.log(`Error in Get data${err}`);
         }else{
             res.send(doc);
         }
     })
+    // let data = quotedb.find();
+    // res.send(data)
+    // if(data){
+    // }   
+    // }else{
+    //     return res.status(400).send('No record found with id ' + req.params.id)
+    // }
 });
 
 //post API
