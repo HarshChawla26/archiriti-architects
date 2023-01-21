@@ -1,6 +1,7 @@
 const express  = require('express');
 const router  = express.Router();
-const env = reuire('./../env.js');
+const dotenv = require('dotenv');
+dotenv.config();
 const nodemailer = require('nodemailer');
 
 const feedbackDB  = require('../models/feedback.js');
@@ -39,13 +40,13 @@ router.post('/',async (req,res)=>{
     const transporter = await nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: "harshchawla625@gmail.com",
-            pass: "ebmjtnssizwbhagu"
+            user: process.env.Email,
+            pass: process.env.PassCode
         }
     });
     
     let info = transporter.sendMail({
-        from: "harshchawla625@gmail.com",
+        from: `${process.env.Email}`,
         to:`${fdbk.email}`, 
         subject:'Thank You for your feedback😊😊',
         text:`Hello ${fdbk.name},
