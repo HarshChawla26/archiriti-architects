@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 
 let otpString = '';
 function randomOTP(){
+    otpString = ""
     let one = Math.floor(Math.random()*100).toString()
     let two = Math.floor(Math.random()*100).toString()
     let three = Math.floor(Math.random()*100).toString();
@@ -40,7 +41,8 @@ Archiriti architects
 Ambala Cantt.
 Haryana-133001
 `
-    }).then((info)=>{
+    
+}).then((info)=>{
         return res.status(200).json({message:"Data is posted",otp:otpString})
     }).catch(err=>{
         return  res.status(500).json({message:err});
