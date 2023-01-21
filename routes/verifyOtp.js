@@ -2,7 +2,7 @@ const express  = require('express');
 const router  = express.Router();
 const nodemailer = require('nodemailer');
 
-let otpString = "";
+let otpString = '';
 function randomOTP(){
     let one = Math.floor(Math.random()*100).toString()
     let two = Math.floor(Math.random()*100).toString()
