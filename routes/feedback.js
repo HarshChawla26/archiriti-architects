@@ -1,5 +1,6 @@
 const express  = require('express');
 const router  = express.Router();
+const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 
 const feedbackDB  = require('../models/feedback.js');
@@ -11,7 +12,7 @@ const feedbackDB  = require('../models/feedback.js');
 router.get('/',(req,res)=>{
     feedbackDB.find()
     .then((e)=>{
-        res.send({message:e})
+        res.send({message:"This is feedback API"})
     }).catch((err)=>{
         res.status(400).send({message:"Error occured"});
     })
@@ -38,13 +39,13 @@ router.post('/',async (req,res)=>{
     const transporter = await nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'harshchawla625@gmail.com',
-            pass: 'ebmjtnssizwbhagu'
+            user: process.env.Email,
+            pass: process.env.PassCode
         }
     });
     
     let info = transporter.sendMail({
-        from:'harshchawla625@gmail.com',
+        from: process.env.Email,
         to:`${fdbk.email}`, 
         subject:'Thank You for your feedback😊😊',
         text:`Hello ${fdbk.name},
