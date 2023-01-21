@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.be61265f.css",
-    "main.js": "/static/js/main.cbd4517c.js",
+    "main.css": "/static/css/main.7f6a0185.css",
+    "main.js": "/static/js/main.797d83f6.js",
     "static/media/brown_wood_texture.jpg": "/static/media/brown_wood_texture.c60209c28cd615934f3f.jpg",
     "static/media/pic2.webp": "/static/media/pic2.2e9ef0e1379a3a60a2be.webp",
     "index.html": "/index.html",
-    "main.be61265f.css.map": "/static/css/main.be61265f.css.map",
-    "main.cbd4517c.js.map": "/static/js/main.cbd4517c.js.map"
+    "main.7f6a0185.css.map": "/static/css/main.7f6a0185.css.map",
+    "main.797d83f6.js.map": "/static/js/main.797d83f6.js.map"
   },
   "entrypoints": [
-    "static/css/main.be61265f.css",
-    "static/js/main.cbd4517c.js"
+    "static/css/main.7f6a0185.css",
+    "static/js/main.797d83f6.js"
   ]
 }
