@@ -39,13 +39,13 @@ router.post('/',async (req,res)=>{
     const transporter = await nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: `${env.email}`,
-            pass: `${env.passCode}`
+            user: "harshchawla625@gmail.com",
+            pass: "ebmjtnssizwbhagu"
         }
     });
     
     let info = transporter.sendMail({
-        from: `${env.email}`,
+        from: "harshchawla625@gmail.com",
         to:`${fdbk.email}`, 
         subject:'Thank You for your feedback😊😊',
         text:`Hello ${fdbk.name},
