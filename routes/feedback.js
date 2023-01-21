@@ -40,8 +40,8 @@ router.post('/',async (req,res)=>{
     const transporter = await nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: `${process.env.Email}`,
-            pass: `${process.env.PassCode}`
+            user: process.env.Email,
+            pass: process.env.PassCode
         }
     });
     
