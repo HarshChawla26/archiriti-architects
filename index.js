@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('./data.js');
 const qroutes = require('./routes/quotes.js');
 const froutes = require('./routes/feedback.js');
+const vrfy = require('./routes/verifyOtp.js');
 const path = require('path');
 const app = express()
 
@@ -16,6 +17,11 @@ app.use(bodyParser.json());
 app.use('/quotes',qroutes);
 app.use('/feedbacks',froutes);
 
+// app.get('/verify',(req,res)=>{
+//   res.send("Hii")
+// });
+
+app.use('/verify',vrfy);
 
 app.get("/projects",(req,res)=>{
   res.sendFile(path.join(__dirname+'/dist/build/index.html'));
