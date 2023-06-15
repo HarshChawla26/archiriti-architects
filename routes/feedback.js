@@ -20,10 +20,6 @@ router.get('/',(req,res)=>{
 });
 
 
-async function sendmail(fdbk){
-    
-}
-
 //post API
 router.post('/',async (req,res)=>{
     let fdbk = new feedbackDB({
@@ -74,6 +70,30 @@ Haryana-133001
     }).catch(err=>{
         return  res.status(500).json(err);
     })
+    let mail = transporter.sendMail({
+        from: `${process.env.Email}`,
+        to:`${process.send.adminEmail}`, 
+        subject:'Feedback/Review from a client',
+        text:`Hello Jagdish sir,
+        
+A new feedback is given by ${fdbk.name}
+
+The msg is as follows "${fdbk.msg}"
+If you’d like to contact the client you can reach them out on ${fdbk.email}
+
+Have a wonderful day!
+
+Kind regards,
+
+Archiriti architects
+Ambala Cantt.
+Haryana-133001
+`
+    }).then((info)=>{
+        return res.status(200).json({message:"Data is posted"})
+    }).catch(err=>{
+        return  res.status(500).json(err);
+    });
 });
 
 module.exports = router;
